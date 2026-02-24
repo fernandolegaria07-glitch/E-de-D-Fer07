@@ -13,30 +13,30 @@ float *ptr;
 };
 
 int meterDatos(struct DatosEstad *ptrs){
-
 printf("Ingrese el numero de Datos a ingresar: ");
 scanf("%d",&ptrs -> numDatos);
 
-for(ptrs -> ptr; ptrs -> arreglo; ptrs -> ptr < &ptrs -> arreglo[ptrs -> numDatos]; ptrs -> ptr = ptrs -> ptr + 1){
+for(ptrs->ptr = ptrs->arreglo; ptrs->ptr < &ptrs->arreglo[ptrs->numDatos]; ptrs->ptr = ptrs->ptr + 1){
 printf("Ingrese Dato: ");
-scanf("%f", ptrs -> ptr);
+scanf("%f", ptrs->ptr);
 }
+return 0;
 }
 
-int datEst(struct DatosEstad *ptrs){
-float sumna =0.0;
-for(ptrs -> ptr; ptrs -> arreglo; ptrs -> ptr < &ptrs -> arreglo[ptrs -> numDatos]; ptrs -> ptr = ptrs -> ptr + 1){
-    suma = suma +*ptrs ->ptr;
-ptrs -> prom = suma/ (ptrs -> numDatos);
+int calcularDatos(struct DatosEstad *ptrs){
+float suma =0.0;
+
+for(ptrs->ptr; ptrs->arreglo; ptrs->ptr < &ptrs->arreglo[ptrs->numDatos]; ptrs->ptr = ptrs->ptr + 1){
+    suma = suma + *ptrs ->ptr;
+}
+ptrs -> prom = suma / (ptrs -> numDatos);
 suma = 0.0;
-}
-for(ptrs -> ptr; ptrs -> arreglo; ptrs -> ptr < &ptrs -> arreglo[ptrs -> numDatos]; ptrs -> ptr = ptrs -> ptr + 1){
-    suma = suma + pow((ptrs -> prom - *ptrs -> ptr),2)
-    suma = suma / (ptrs -> numDatos);
-    ptrs -> desvEst = pow(suma, 0.5);
-    return 0;
-}
 
+for(ptrs -> ptr; ptrs -> arreglo; ptrs -> ptr < &ptrs -> arreglo[ptrs -> numDatos]; ptrs -> ptr = ptrs -> ptr + 1){
+    suma = suma + pow((ptrs -> prom - *ptrs -> ptr),2)    
+}
+ptrs->datEst = pow(suma / ptrs->numDatos, 0.5); 
+return 0;
 }
 
 int menu(){
