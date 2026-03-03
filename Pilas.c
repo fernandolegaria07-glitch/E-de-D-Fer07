@@ -1,7 +1,7 @@
 #include<stdio.h>
 #define TAM 5
 #include<stdlib.h>
-#include<stdio.h>
+
 //Pilas
 
 struct Pila{

@@ -24,19 +24,19 @@ return 0;
 }
 
 int calcularDatos(struct DatosEstad *ptrs){
-float suma =0.0;
+    float suma =0.0;
 
-for(ptrs->ptr; ptrs->arreglo; ptrs->ptr < &ptrs->arreglo[ptrs->numDatos]; ptrs->ptr = ptrs->ptr + 1){
+    for(ptrs->ptr = ptrs->arreglo; ptrs->ptr < &ptrs->arreglo[ptrs->numDatos]; ptrs->ptr = ptrs->ptr + 1){
     suma = suma + *ptrs ->ptr;
-}
-ptrs -> prom = suma / (ptrs -> numDatos);
-suma = 0.0;
+    }
+    ptrs -> prom = suma / (ptrs -> numDatos);
+    suma = 0.0;
 
-for(ptrs -> ptr; ptrs -> arreglo; ptrs -> ptr < &ptrs -> arreglo[ptrs -> numDatos]; ptrs -> ptr = ptrs -> ptr + 1){
-    suma = suma + pow((ptrs -> prom - *ptrs -> ptr),2)    
-}
-ptrs->datEst = pow(suma / ptrs->numDatos, 0.5); 
-return 0;
+    for(ptrs->ptr = ptrs->arreglo; ptrs->ptr < &ptrs->arreglo[ptrs->numDatos]; ptrs->ptr = ptrs->ptr + 1) {
+    suma = suma + pow((ptrs -> prom - *ptrs -> ptr),2);    
+    }
+    ptrs->datEst = pow(suma / ptrs->numDatos, 0.5); 
+    return 0;
 }
 
 int menu(){
@@ -54,7 +54,7 @@ int menu(){
 int main(){
 struct DatosEstad datEst, *ptrs;
 
-*ptrs = &datEst; 
+ptrs = &datEst; 
 
 for(;;){
     switch(menu()){
@@ -63,7 +63,7 @@ for(;;){
      break;
     case 2:
         calcularDatos(ptrs);
-        printf("\n El promedio en %f a la desviación estandar en", ptrs -> prom, ptrs -> datEst);
+        printf("\n El promedio en %f a la desviación estandar en\n", ptrs->prom, ptrs->datEst);
         break;
     case 3:
     exit(0);
