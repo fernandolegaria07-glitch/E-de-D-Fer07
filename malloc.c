@@ -73,3 +73,5 @@ ptrRec = ptrRec -> ptrSig;
 }
 
 //void free(void *p){} //Apuntador creado por malloc 
+
+//Hacer un programa que que cree nodos infiitos y cree nodos infinitos de 10 kilos bytes
