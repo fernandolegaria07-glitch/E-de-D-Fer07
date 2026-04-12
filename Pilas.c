@@ -11,7 +11,8 @@ struct Pila{
 
 int meterPila(struct Pila *ptrP, int dato){
     *ptrP -> ptrC = dato;
-    *ptrP -> ptrC = ptrP -> ptrC + 1;
+    ptrP -> ptrC = ptrP -> ptrC + 1;
+    return 0;
 }
 
 int estaPilallena(struct Pila *ptrP){
@@ -41,7 +42,7 @@ int opc;
     printf("\n2 Para Sacar de pila: ");
     printf("\n3 Para salir: ");
     printf("\n Ingrese opcción: ");
-    sacanf("%d", &opc);
+    scanf("%d", &opc);
     return opc;
 
 }
@@ -61,14 +62,14 @@ switch(menu()){
         else {
             printf("\nIngrese un entero");
             scanf("%d", &miDato);
-            meterPila(miptrP, &miDato);
+            meterPila(miptrP, miDato);
         }
         break;
     case2:
         if(estaVaciapila(miptrP))
             printf("\n La pila esta vacia");
         else{
-            printf("\n El valor reuperado es", sacarPila(miptrP));
+            printf("\n El valor recuperado es %d", sacarPila(miptrP));
         }
         break;
     case3:
