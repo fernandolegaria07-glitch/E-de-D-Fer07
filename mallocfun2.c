@@ -36,7 +36,7 @@ int recorrer(struct nodo *ptrRef) {
         printf("\nPila vacia.");
     } else {
         while (ptrRec != NULL) {
-            printf("[%d]->", ptrRec -> dato);
+            printf("[%d]->", ptrRec ->dato);
             ptrRec = ptrRec->ptrSig;
         }
     }
